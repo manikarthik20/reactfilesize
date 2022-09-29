@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>File Size Validation Using Javascript Example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
+</head>
+<body class="bg-dark">
+    <div class="continer">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>File Size Validation Using Javascript Example</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" name="frmAdd" id="frmAdd">
+                            <label for="image">Image:</label>
+                            <input type="file" name="image" class="form-control" id="image" value="" onchange="OnFileValidation()"><br/>
+                            <button type="submit" class="btn btn-success">Submit</button>        
+                       </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function OnFileValidation() {
+        var image = document.getElementById("image");
+        if (typeof (image.files) != "undefined") {
+            var si = image.files[0].size
+            var size = parseFloat(image.files[0].size / (1024 * 1024)).toFixed(2); 
+            console.log(si);
+            console.log(size);
+            if(size > 2) {
+                alert('Please select image size less than 2 MB');
+            }else{
+                alert('success');
+            }
+        } else {
+            alert("This browser does not support HTML5.");
+        }
+    }
+</script>
+</html>
